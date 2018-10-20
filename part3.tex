@@ -69,27 +69,71 @@ In this part we wish to linearise around the point
 The linearisation will be with the helicopter horizontal in both pitch and elevation. As well as no travel. For the equilibrium point $V_d^*$ and $V_s^*$ needs to be determined. It's quite easy to imagine that $V_d^*$ will be zero, as anything else would give a $\dot{p} \neq 0$.
 
 To derive $V_s^*$ it is possible to use the equations from last problem. Specifically \ref{eq:P1_elevation_non-linear}
-\begin{align}
+\begin{align*}
      J_e \ddot{e} &= L_2 \cos{e} + L_3 V_s \cos{p} \\
      J_e * 0 &= L_2 + L_3 * V_s^* \\
-     
-\end{align}
-
-\begin{subequations}\label{eq:P1_lin_eq_of_motion}
+     V_s^* &= -\frac{L2}{L3} \\
+     V_s^* &= -\frac{g(l_c m_c - 2 l_h m_p)}{K_f l_h}
+\end{align*}
+To summarise
+\begin{subequations}
     \begin{align}
-        \tdd{p}&=K_1\tilde{V_d}     \label{eq:P1_lin_eq_of_motion_p} \\
-        \tdd{e}&=K_2\tilde{V_s}     \label{eq:P1_lin_eq_of_motion_e} \\
-        \tdd{\lambda}&=K_3\tilde{p} \label{eq:P1_lin_eq_of_motion_l}
-    \end{align}
+        V_s^* &= -\frac{g(l_c m_c - 2 l_h m_p)}{K_f l_h} \label{eq:P1p2_Vs} \\
+        V_d^* &= 0 \label{eq:P1p2_Vd}
+    \end{align}    
 \end{subequations}
-
-with
-
-%\begin{subequation}\label{eq:P1_lin_eq_of_motion_constants}
-%    \begin{align}
-%        K_1&=\frac{L_1}{J_p} \label{eq:P1_lin_eq_of_motion_}
-%    \end{align}
-%\end{subequation}
+To simplify further analysis, the following coordinate transformation is introduced.
+\begin{equation}
+    \begin{bmatrix}
+        \tilde{p} \\ \tilde{e} \\ \tilde{\lambda}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        p \\ e \\ \lambda
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        p^* \\ e^* \\ \lambda^*
+    \end{bmatrix}
+    \quad \text{and} \quad
+    \begin{bmatrix}
+        \tilde{V}_s \\ \tilde{V}_d
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        V_s \\ V_d
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        V_s^* \\ V_d^*
+    \end{bmatrix}
+\end{equation}
+Which gives the following motion equations.
+\begin{equation}
+    \begin{bmatrix}
+        p \\ e \\ \lambda
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \tilde{p} \\ \tilde{e} \\ \tilde{\lambda}
+    \end{bmatrix}
+    \quad \text{and} \quad
+    \begin{bmatrix}
+        V_s \\ V_d
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \tilde{V}_s \\ \tilde{V}_d
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        -\frac{L_2}{L_3} \\ 0
+    \end{bmatrix}
+\end{equation}
+To linearise we use the Jacobian and evaluate in our equilibrium
+\begin{equation}
+    a_{i,j} = \frac{\del f_i}{\del x_j}
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Part II - Monovariable Control}\label{subsec:part2}
@@ -216,7 +260,7 @@ the matrices $\mathbf{A}$ and $\mathbf{B}$ are given by
                 0&0\\
                 K_1&0\\
                 0&K_2
-            \end{bmatrix}\label{eq:P3_p1_B}
+            \end{bmatrix}\label{eq:P3_p1_B}.
     \end{align}
 \end{subequations}
 

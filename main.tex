@@ -8,18 +8,30 @@
 \newcommand{\td}[1]{\dot{\tilde{#1}}}
 \newcommand{\tdd}[1]{\ddot{\tilde{#1}}}
 \newcommand{\MATLAB}{\textsc{Matlab}\xspace}
+\newcommand{\QuaRC}{\textsc{QuaRC}\xspace}
+\newcommand{\lin}[2]{\left. \frac{\partial{#1}}{\partial{#2}}\right|_P}
 \begin{document}
+ 
 
 % Titlepage
-\title{LaTeX Lab Report Template}
-\author{Group 16\\Odin Aleksander Severinsen\\Sigurd Totland\\Viktor Korsnes}
+\title{TTK4115 Helicopter Lab Report}
+\author{
+    Group 16\\
+    Odin Aleksander Severinsen (student number:)\\
+    Sigurd Totland (student number: 478437) \\
+    Viktor Korsnes (student number:)
+}
 \date{\today}
 \begin{titlepage}
     \maketitle
-    \begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/itk_ntnu}\\
-    Department of Engineering Cybernetics
+    \begin{figure}[htb]
+        \centering
+        \includegraphics[width=0.65\textwidth]{figures/quanser}
+    \end{figure}
+    \begin{figure}[b]
+        \centering
+        \includegraphics[width=0.5\textwidth]{figures/itk_ntnu}\\
+        Department of Engineering Cybernetics
     \end{figure}
     \thispagestyle{empty}
 \end{titlepage}
@@ -37,13 +49,46 @@
 % Main content
 \newpage
 \setcounter{page}{1}
+
+% Intro
+
 \include{intro}
-\include{part1}
-\include{part2}
-\include{part3}
-\include{part4}
-\include{problems}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Part I
+\include{part1/part1} % These are very short and fit better as inputs
+
+
+% Part II
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{part2/problem1}
+\include{part2/problem2}
+
+% Part III
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{part3/problem1}
+\include{part3/problem2}
+\include{part3/problem3}
+
+% Part IV
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{part4/problem1}
+\include{part4/problem2}
+\include{part4/problem3}
+
+% Conclusion
+
 \include{conclusion}
+
+% Appendix
+
 \include{appendix}
 % \input simply inserts the contents of the file, while \include forces a \newpage.
 % See \input vs. \include: http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
@@ -55,3 +100,11 @@
 \label{sec:bibliography}
 
 \end{document}
+
+
+\section{HOW-TO Rapport}\label{sec:howto} % TODO: Remove
+Your introduction should contain an overview of the work you were assigned, as well as a few sentences putting the work into a larger perspective. You should also give a quick description of how the report is organized (as is done below).
+
+You should of course put most of the work into doing good work in the lab and then presenting it in the report. When presenting your work in the report, both content and presentation/layout matters. Since your only way of communicating your good effort in the lab is through writing about it here, the way you write about it is essential. This means that even if you have the very best controller but describe it poorly, you will probably not be rewarded for the good results. A plot showing perfect control is worth very little if it is not accompanied by a clear description of what it represents.
+
+Layout is naturally less important than content, but it still matters. You can think of report writing like selling an apartment; when you present your apartment for potential buyers you will of course clean the apartment and make it good looking. How clean the apartment is does of course not determine its value, but it is still important since it influences the subjective value your buyers will put on the apartment. 

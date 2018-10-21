@@ -1,0 +1,85 @@
+\subsubsection{Problem 3}
+\textbf{Observability Analysis}\\
+The matrices 
+\begin{equation}
+    \mathbf{C}_{e\lambda} = \begin{bmatrix}
+    0 & 0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 & 0
+    \end{bmatrix}
+    \quad \text{and} \quad
+    \mathbf{C}_{pe} = \begin{bmatrix}
+    1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 & 0 & 0
+    \end{bmatrix}
+\end{equation}
+correspond to the measurement vectors
+\begin{equation}
+    \mathbf{y}_{e\lambda} = \begin{bmatrix}
+        \tilde e \\
+        \tilde \lambda
+    \end{bmatrix}
+    \quad \text{and} \quad
+    \mathbf{y}_{pe} = \begin{bmatrix}
+        \tilde p \\
+        \tilde e 
+    \end{bmatrix}
+\end{equation}
+respectively.\\
+Since the observability matrix,
+\begin{equation}
+    \setstackgap{L}{1.1\baselineskip}
+    \fixTABwidth{T}
+    \mathbf{\mathcal{O}}_{e\lambda} = 
+        \begin{bmatrix}
+        \mathbf{C}_{e\lambda}               \\
+        \mathbf{C}_{e\lambda}\mathbf{A}     \\
+        \mathbf{C}_{e\lambda}\mathbf{A^2}   \\
+        \mathbf{C}_{e\lambda}\mathbf{A^3}   \\
+        \mathbf{C}_{e\lambda}\mathbf{A^4}   \\
+    \end{bmatrix}
+    = \bracketMatrixstack{
+    0       & 0       & 1 & 0 & 0 & 0 \\
+    0       & 0       & 0 & 0 & 1 & 0 \\
+    0       & 0       & 0 & 1 & 0 & 0 \\
+    0       & 0       & 0 & 0 & 0 & 1 \\
+    0       & 0       & 0 & 0 & 0 & 0 \\
+    -0.612  & 0       & 0 & 0 & 0 & 0 \\
+    0       & 0       & 0 & 0 & 0 & 0 \\
+    0       & -0.612  & 0 & 0 & 0 & 0 \\
+    0       & 0       & 0 & 0 & 0 & 0 \\
+    0       & 0       & 0 & 0 & 0 & 0 \\
+    0       & 0       & 0 & 0 & 0 & 0 \\
+    0       & 0       & 0 & 0 & 0 & 0 }
+\end{equation}
+has full column rank, the system is observable when measuring only $\tilde e$ and $\tilde \lambda$. On the other hand, when measuring only $\tilde p$ and $\tilde e$, the system is \textit{not} observable, as
+
+\begin{equation}
+    \mathbf{\mathcal{O}}_{pe} = 
+        \begin{bmatrix}
+        \mathbf{C}_{pe}               \\
+        \mathbf{C}_{pe}\mathbf{A}     \\
+        \mathbf{C}_{pe}\mathbf{A^2}   \\
+        \mathbf{C}_{pe}\mathbf{A^3}   \\
+        \mathbf{C}_{pe}\mathbf{A^4}   \\
+    \end{bmatrix}
+    = \begin{bmatrix}
+    1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    \end{bmatrix}
+\end{equation}
+does \textit{not} have full column rank.\\
+This also makes intuitive sense, as we cannot expect to observe the travel, $\lambda$, from only knowing elevation $e$ and the pitch $p$. But if we do know the travel, the pitch can be obtained by taking the derivative.\\ 
+\\
+\textbf{The Baddest Observer in the West}\\
+Tuning the observer based solely on the outputs $e$ and $\lambda$ proved to be much harder than when the pitch, $p$ was also part of the measurements. The erroneous estimation is most clear in the pitch rate estimation as shown in figure (WE DONT HAVE A GOOD FIGURE WAT DO). This is partly because the pitch has the non-linear correlation with elevation and travel given in equations \eqref{eq:P1_elevation_non-linear} and \eqref{eq:P1_travel_non-linear}, but the observer is based on the linearised equations given in \eqref{eq:P1_linearised_equations_of_motion}. As a result, the estimation error becomes more prevalent the further away from the linearisation point the state sways. This error gets amplified further when taking the derivative, since a high frequency noise signal such as $\sin(\omega t)$, where $\omega$ is large, has the high amplitude derivative $\omega \cos(\omega t)$. 
+    

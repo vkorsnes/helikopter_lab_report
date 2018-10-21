@@ -1,0 +1,42 @@
+\subsection{Part III - Multivariable control}\label{subsec:part3}
+\subsubsection{Problem 1}
+
+Considering the linearised system in \cref{eq:P1_linearised_equations_of_motion} with a state and input vector of  
+
+\begin{equation}\label{eq:P3_state_vector_and_input}
+    \mathbf{x}=
+    \begin{bmatrix}
+        \tilde{p}\\
+        \td{p}\\
+        \td{e}
+    \end{bmatrix}
+    \quad\text{and}\quad
+    \mathbf{u}=
+    \begin{bmatrix}
+        \tilde{V_s}\\
+        \tilde{V_d}
+    \end{bmatrix}
+\end{equation}
+and a state-space formulation of the form
+\begin{equation}\label{eq:P3_state_space_equation}
+    \dot{\mathbf{x}}=\mathbf{Ax}+\mathbf{Bu},
+\end{equation}
+the matrices $\mathbf{A}$ and $\mathbf{B}$ become 
+\begin{subequations}\label{eq:P3_p1_A_B}
+    \begin{align}
+        \mathbf{A}&=
+            \begin{bmatrix}
+                0&1&0\\
+                0&0&0\\
+                0&0&0
+            \end{bmatrix}\label{eq:P3_p1_A} \\
+        \mathbf{B}&=
+            \begin{bmatrix}
+                0&0\\
+                K_1&0\\
+                0&K_2
+            \end{bmatrix}\label{eq:P3_p1_B}.
+    \end{align}
+\end{subequations}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

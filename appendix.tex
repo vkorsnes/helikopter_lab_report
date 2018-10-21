@@ -8,18 +8,16 @@ This section should contain your MATLAB code. DO NOT attach files posted online 
 \lstinputlisting{code/plot_constraint.m}\section{Simulink Diagrams}\label{sec:simulink}
 This section should contain your Simulink diagrams. Just like the plots, these should be in vector format, like in \Cref{fig:simulink}. Make them tidy enough to understand.
 
-\subsection{A Simulink Diagram}
-\Cref{fig:simulink} shows a Simulink diagram. You can use the \texttt{print\_simulink.m} function, included in the source code repository for this document, to export a Simulink model to EPS\@.
-\begin{figure}[htb]
-	\centering
-		\includegraphics[width = \textwidth]{figures/simulink.pdf}
-	\caption{A Simulink diagram.}
-\label{fig:simulink}
+\subsection{Simulink Diagrams for Part II}
+\begin{figure}[!!ht!!!!!!!!tb!!]
+    	\centering
+		\includegraphics[width=1.1\textwidth,trim={0cm 3cm 0cm 5cm},clip]{figures/simulink/P2p2.pdf}
+    	\caption{Top view of model from Part 2 problem 2}
+\label{fig:P2p2_simulink}
 \end{figure}
-
 \FloatBarrier
 
-\section{Parameters and values}
+\section{Parameters and values}\label{sec:parameters}
 
 
 \begin{table}[tbp]
@@ -29,16 +27,14 @@ This section should contain your Simulink diagrams. Just like the plots, these s
 		\toprule
 		Symbol & Parameter & Value & Unit \\
 		\midrule
-		$l_a$ & Distance from elevation axis to helicopter body & $0.63$  & \meter                      \\
-		$l_h$ & Distance from pitch axis to motor               & $0.18$  & \meter                      \\
+		$l_h$ & Distance from elevation axis to helicopter body & $0.63$  & \meter                      \\
+		$l_p$ & Distance from pitch axis to motor               & $0.18$  & \meter                      \\
 		$K_f$ & Force constant motor                            & $0.25$  & \newton\per\volt            \\
 		$J_e$ & Moment of inertia for elevation                 & $0.83$  & \kilogram\usk\meter\squared \\
-		$J_t$ & Moment of inertia for travel                    & $0.83$  & \kilogram\usk\meter\squared \\
+$J_{\lambda}$ & Moment of inertia for travel                    & $0.83$  & \kilogram\usk\meter\squared \\
 		$J_p$ & Moment of inertia for pitch                     & $0.034$ & \kilogram\usk\meter\squared \\
-		$m_h$ & Mass of helicopter                              & $1.05$  & \kilogram                   \\
-		$m_w$ & Balance weight                                  & $1.87$  & \kilogram                   \\
-		$m_g$ & Effective mass of the helicopter                & $0.05$  & \kilogram                   \\
-		$K_p$ & Force to lift the helicopter from the ground    & $0.49$  & \newton                     \\
+		$m_p$ & Mass of helicopter                              & $1.05$  & \kilogram                   \\
+		$m_c$ & Weight of counterweight                         & $1.87$  & \kilogram                   \\
 		\bottomrule
 	\end{tabular}
 \label{tab:parameters}

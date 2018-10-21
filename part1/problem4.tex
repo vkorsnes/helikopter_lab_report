@@ -1,0 +1,14 @@
+\subsubsection{Problem 4}
+In order to implement the controllers required in the later parts, the encoder outputs from the helicopter need to be converted from degrees to radians. This is done by adding gains of value $\frac{\pi}{180\degree}$ to the outputs. These gains, labeled D2R can be seen in most of the simulink diagrams in \Cref{sec:simulink}, for example in \cref{fig:P2p2_simulink}.
+
+Furthermore, since the elevation is defined to be zero when the helicopter is horizontal, an offset voltage $V_s^*$ is needed. This voltage was measured by slowly increasing the voltage $V_s$ with the joystick, all the while restraining the other two axes to zero by holding the helicopter loosely at its head. By doing so in a controlled manner, the voltage offset was found to be 
+\begin{equation}
+    \label{eq:P1_Vs_asterix_value}
+    V_s^* \approx 6.5 \volt.
+\end{equation}
+
+From the voltage offset, the motor force constant $K_f$ can be calculated. By rearranging \cref{eq:P1p2_Vs_asterix} and inserting values for the constants, $K_f$ can be calculated to be
+\begin{equation}
+    K_f = -\frac{g(l_c m_c - 2 l_h m_p)}{V_s^* l_h} \approx 0.1537 \frac{\newton \meter}{\sqrt{\watt}}.
+\end{equation}
+The constant values can be found in \cref{tab:parameters} in \Cref{sec:parameters}.
